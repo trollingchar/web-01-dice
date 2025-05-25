@@ -21,6 +21,11 @@ const CELL_SIZE_Y = CANVAS_HEIGHT / GRID_HEIGHT;
 const pointRadius = 4;
 
 const weights = [58, 166, 262, 346, 418, 478, 526, 562, 586, 598, 598, 586, 562, 526, 478, 418, 346, 262, 166, 58];
+const probabilities =
+    weights.
+    reduce((accum, curr, i) => [...accum, accum[i - 1] + curr || curr], []).
+    map(n => `${(n / 80).toFixed(1)}%`);
+console.log(probabilities);
 
 let points = [[10, 10], [20, 15]];
 
@@ -106,8 +111,12 @@ function drawPoints() {
         ctx.strokeStyle = "black";
         ctx.stroke();
 
-        ctx.fillStyle = "white";
-        ctx.fillText(`(${px}, ${py})`, x + 8, y + 8);
+        const probability = py < 1 ? "100.0%" : py > 20 ? "0.0%" : probabilities[20 - py];
+        const text = `${py}:${px} (${probability})`
+        // ctx.strokeStyle = "black";
+        // ctx.strokeText(text, x + 10, y + 10);
+        ctx.fillStyle = "black";
+        ctx.fillText(text, x + 10, y + 10);
     });
 }
 

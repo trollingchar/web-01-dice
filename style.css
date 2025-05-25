@@ -1,0 +1,37 @@
+@font-face {
+    font-family: "ObelixPro";
+    src: url("Obelix Pro.ttf");
+}
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #478b9f;
+    font-family: "ObelixPro", sans-serif;
+    user-select: none;
+}
+canvas {
+    border-radius: 20px;
+    background-color: #6ccdea;
+    cursor: crosshair;
+}
+.label {
+    margin-bottom: 5px;
+    font-size: 20px;
+    text-align: center;
+    color: #6ccdea;
+}
+#outputBox {
+    border-radius: 20px;
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: #6ccdea;
+    font-size: 16px;
+    cursor: pointer;
+    width: 600px;
+    text-align: center;
+    color: black;
+}

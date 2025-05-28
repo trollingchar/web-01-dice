@@ -25,7 +25,6 @@ const probabilities =
     weights.
     reduce((accum, curr, i) => [...accum, accum[i - 1] + curr || curr], []).
     map(n => `${(n / 80).toFixed(1)}%`);
-console.log(probabilities);
 
 let points = [[10, 10], [20, 15]];
 
@@ -93,6 +92,11 @@ function labelAxes() {
     for (let gy = Y_MIN; gy <= Y_MAX; gy++) {
         const y = gridToScreenY(gy);
         if (gy !== 0) ctx.fillText(gy, axisX - 5, y);
+    }
+
+    for (let gy = 1; gy <= 20; gy++) {
+        const y = gridToScreenY(gy);
+        ctx.fillText(probabilities[20 - gy], axisX - 25, y);
     }
 }
 

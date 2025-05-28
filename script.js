@@ -4,8 +4,8 @@ const canvas = document.getElementById("gridCanvas");
 const ctx = canvas.getContext("2d");
 const outputBox = document.getElementById("outputBox");
 
-const X_MIN = -15;
-const X_MAX = 55;
+const X_MIN = -55;
+const X_MAX = 155;
 const Y_MIN = -5;
 const Y_MAX = 35;
 
@@ -82,7 +82,7 @@ function labelAxes() {
     ctx.textAlign = "center";
     ctx.textBaseline = "top";
 
-    for (let gx = X_MIN; gx <= X_MAX; gx++) {
+    for (let gx = X_MIN; gx <= X_MAX; gx += 5) {
         const x = gridToScreenX(gx);
         if (gx !== 0) ctx.fillText(gx, x, axisY + 5);
     }
